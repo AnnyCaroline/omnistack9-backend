@@ -1,2 +1,3 @@
 - MongoDB Atlas
 - portquiz.net:27017 (saber se estou atrás de um proxy, onde 27017 é a porta do nosso mongodb)
+- https://blog.rocketseat.com.br/variaveis-ambiente-nodejs/

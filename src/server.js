@@ -1,3 +1,5 @@
+require('dotenv/config');
+
 const express = require('express');
 const mongoose = require('mongoose');
 
@@ -5,7 +7,7 @@ const routes = require('./routes');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://omnistack:<password>@cluster0-8mfvh.mongodb.net/omnistack9?retryWrites=true&w=majority', {
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0-8mfvh.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
