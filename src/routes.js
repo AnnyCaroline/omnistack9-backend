@@ -9,6 +9,7 @@ const routes = express.Router();
 const upload = multer(uploadConfig);
 
 routes.post('/sessions', SessionController.store);
+routes.get('/spots', SpotController.index);
 routes.post('/spots', upload.single('thumbnail'), SpotController.store); //se fossem várias imagens, poderia usar upload.arr()
 
 module.exports = routes;
