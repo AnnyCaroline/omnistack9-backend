@@ -6,9 +6,18 @@ const SpotSchema = new mongoose.Schema({
     price: Number,
     techs: [String],
     user: {
-        type: mongoose.Schema.Types.ObjectId, //é o _id
+        type: mongoose.Schema.Types.ObjectId, //this is the _id
         ref: 'User'
     }
-});
+}, {
+        toJSON: {
+            virtuals: true
+        }
+    });
+
+// cannot be arrow function, so we can access "this"
+SpotSchema.virtual('thumbnail_url').get(function () {
+    return `http://localhost:3333/files/${this.thumbnail}`;
+})
 
 module.exports = mongoose.model('Spot', SpotSchema);
